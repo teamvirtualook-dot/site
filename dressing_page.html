@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Garde-Robe | VirtuaLook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="landing_page.html" class="logo">
+            <span class="logo-virtua">Virtua</span><span class="logo-look">Look</span>
+        </a>
+        
+        <div style="display:flex; align-items:center;">
+            <a href="landing_page.html" class="header-link">
+                Accueil
+            </a>
+    
+            <a href="changing_room.html" class="header-link">
+                Aller en Cabine →
+            </a>
+    
+            <button id="btn-create" class="action-button primary-action">
+                + Nouveau Vêtement
+            </button>
+        </div>
+    </header>
+
+    <div class="workspace" style="display:block; padding:20px 10%;">
+        <h2>Mon Inventaire</h2>
+        <div id="category-nav" class="category-nav"></div>
+        <div id="dressing-grid" class="item-grid"></div>
+    </div>
+
+    <div id="creation-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Atelier Couture</h3>
+            <label>Type:</label>
+            <select id="select-type" class="modal-input">
+                <option value="tshirt">T-Shirt</option>
+                <option value="pantalon">Pantalon</option>
+                <option value="chaussures">Chaussures</option>
+            </select>
+            <label>Couleur:</label>
+            <input type="color" id="input-color" class="modal-input" value="#1D396F" style="height:50px">
+            <label>Nom:</label>
+            <input type="text" id="input-name" class="modal-input" placeholder="Ex: Mon T-shirt Bleu">
+            
+            <div style="text-align:right; margin-top:15px;">
+                <button id="btn-cancel" class="action-button secondary-action">Annuler</button>
+                <button id="btn-save-new" class="action-button primary-action">Coudre & Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app_dressing.js"></script>
+</body>
+</html>

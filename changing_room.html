@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabine d'Essayage | VirtuaLook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="landing_page.html" class="logo">
+            <span class="logo-virtua">Virtua</span><span class="logo-look">Look</span>
+        </a>
+    
+        <div style="display:flex; gap: 15px; align-items:center;">
+            <a href="landing_page.html" class="nav-back-link" style="color:#666; font-size:0.9rem;">
+                Accueil
+            </a>
+            <a href="dressing_page.html" class="action-button secondary-action">
+                ← Garde-Robe
+            </a>
+        </div>
+    </header>
+
+    <div class="workspace">
+        <aside class="sidebar-panel">
+            <h3>Catalogue</h3>
+            <div id="catalog-grid" class="item-grid" style="grid-template-columns: 1fr 1fr;"></div>
+        </aside>
+
+        <main class="main-panel">
+            <div class="avatar-stage">
+                <div id="avatar-container">
+                    <img id="base-body" src="images/Avatar_base.png" class="clothing-layer" style="z-index:0;" alt="Avatar">
+                    </div>
+
+                <div id="adjust-panel" class="adjustment-panel">
+                    <h4>Ajustements</h4>
+                    <label>Position X</label> <input type="range" id="ctrl-x" min="-100" max="100">
+                    <label>Position Y</label> <input type="range" id="ctrl-y" min="-100" max="100">
+                    <label>Taille</label> <input type="range" id="ctrl-scale" min="50" max="150">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="app_fitting.js"></script>
+</body>
+</html>

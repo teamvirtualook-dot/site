@@ -1,0 +1,254 @@
+/* --- style.css (COMPLET) --- */
+
+/* 1. VARIABLES & BASE */
+:root {
+    --color-primary: #1D396F; /* Bleu foncé */
+    --color-accent: #5C5C5D; /* Gris foncé / Accent */
+    --color-text: #333;
+    --color-background: #f8f8f8;
+    --color-light-gray: #e0e0e0;
+    --font-family: 'Manrope', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Par défaut */
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* 2. NAVIGATION (COMMUN) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: #fff;
+    border-bottom: 1px solid var(--color-light-gray);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.logo { 
+    font-weight: 800; 
+    font-size: 1.5rem; 
+    display: flex; 
+    align-items: center; 
+    cursor: pointer;
+}
+.logo-virtua { color: var(--color-primary); font-family: 'Gugi', sans-serif; }
+.logo-look { color: var(--color-accent); font-family: 'Gugi', sans-serif; }
+
+.nav-links a { margin-left: 20px; font-weight: 600; color: var(--color-text); }
+.nav-links a:hover { color: var(--color-primary); }
+
+.header-link {
+    font-family: var(--font-family); /* Force la police Manrope */
+    font-size: 0.9rem;               /* Même taille pour tous */
+    font-weight: 600;                /* Même gras */
+    color: #666;                     /* Même couleur gris doux */
+    margin-right: 20px;              /* Espace identique à droite */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.header-link:hover {
+    color: var(--color-primary);     /* Devient bleu au survol */
+}
+
+/* Boutons d'action */
+.cta-button, .action-button {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.primary-nav { background-color: var(--color-primary); color: #fff; }
+.primary-nav:hover { background-color: var(--color-accent); transform: scale(1.05); }
+
+.primary-action { background: var(--color-primary); color: white; padding: 8px 15px; font-size: 0.9rem; border-radius: 4px;}
+.primary-action:hover { background: #162d5a; }
+
+.secondary-action { background: var(--color-light-gray); color: var(--color-text); padding: 8px 15px; font-size: 0.9rem; border-radius: 4px;}
+.secondary-action:hover { background: #d0d0d0; }
+
+/* 3. STYLES SPÉCIFIQUES LANDING PAGE (Restaurés) */
+.hero-section {
+    padding: 4rem 10%;
+    min-height: 80vh;
+    text-align: center; /* Centré pour la landing */
+}
+
+.hero-content { max-width: 800px; margin: 0 auto; }
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+.highlight { color: var(--color-accent); }
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto; margin-right: auto;
+}
+
+.primary-hero {
+    background: linear-gradient(45deg, var(--color-accent), var(--color-primary));
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(29, 57, 111, 0.4);
+}
+.primary-hero:hover { color: white; transform: translateY(-2px); }
+
+/* Avatar Landing Page (Décoratif) */
+.landing-avatar-container {
+    position: relative;
+    width: 100%; max-width: 450px;
+    margin: 30px auto; padding: 20px;
+    border: 2px solid var(--color-light-gray);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.1);
+}
+.avatar-image { width: 100%; height: auto; opacity: 0.9; }
+
+.login-link { margin-top: 20px; font-size: 0.95rem; }
+
+/* Footer */
+footer { margin-top: auto; border-top: 1px solid var(--color-light-gray); padding: 20px; background: #fff; text-align: center; }
+.footer-text p { color: #666; font-size: 0.9rem; }
+
+/* 4. STYLES APPLICATION (Dressing & Cabine) */
+
+/* Layout Grid Workspace */
+.workspace {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    flex-grow: 1;
+    height: calc(100vh - 70px); /* Hauteur restante */
+    overflow: hidden;
+}
+
+.sidebar-panel {
+    background: #fff;
+    border-right: 1px solid var(--color-light-gray);
+    padding: 20px;
+    overflow-y: auto;
+    display: flex; flex-direction: column;
+}
+
+.main-panel {
+    padding: 20px;
+    overflow-y: auto;
+    background: #f0f0f0;
+    position: relative;
+    display: flex; justify-content: center; /* Centrer l'avatar */
+}
+
+/* Grilles & Cartes */
+.category-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.cat-btn {
+    padding: 5px 12px; border-radius: 15px; font-size: 0.85rem; background: #eee; cursor: pointer; transition: 0.2s;
+}
+.cat-btn.active { background: var(--color-primary); color: white; }
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.item-card {
+    background: white;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.item-card:hover { border-color: var(--color-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.item-card.selected { border: 2px solid var(--color-primary); background: #eef2ff; }
+.item-img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 10px; }
+
+/* Zone Avatar (Cabine) */
+.avatar-stage {
+    width: 100%; max-width: 600px;
+    height: 95%;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid var(--color-light-gray);
+    position: relative;
+    overflow: hidden; /* Important pour que les vêtements ne dépassent pas */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+#avatar-container {
+    position: relative;
+    width: 100%; height: 100%;
+}
+
+/* Couches Vêtements */
+.clothing-layer {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%); /* Centrage par défaut, écrasé par JS si coord x/y */
+    max-width: 90%; max-height: 90%;
+    pointer-events: auto;
+    transition: filter 0.2s;
+}
+.clothing-layer:hover { filter: drop-shadow(0 0 3px var(--color-primary)); }
+.clothing-layer.active-edit { border: 1px dashed var(--color-primary); filter: drop-shadow(0 0 5px var(--color-primary)); }
+
+/* Panneau Ajustement Flottant */
+.adjustment-panel {
+    position: absolute; top: 20px; right: 20px; width: 220px;
+    background: white; padding: 15px; border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: none; z-index: 100; border: 1px solid #ddd;
+}
+.adjustment-panel.visible { display: block; animation: fadeIn 0.3s; }
+.adjustment-panel h4 { margin-bottom: 10px; color: var(--color-primary); border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.adjustment-panel label { font-size: 0.8rem; color: #666; display:block; margin-top: 8px; }
+.adjustment-panel input[type=range] { width: 100%; }
+
+/* Modal Creation */
+.modal-overlay {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.5); z-index: 2000;
+    display:none; align-items:center; justify-content:center;
+    backdrop-filter: blur(2px);
+}
+.modal-content { background:white; padding:25px; border-radius:10px; width:90%; max-width:400px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.modal-input { width:100%; padding:8px; margin: 10px 0; border:1px solid #ccc; border-radius:4px;}
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .navbar { flex-direction: column; gap: 10px; }
+    .hero-title { font-size: 2.5rem; }
+    .workspace { grid-template-columns: 1fr; }
+    .sidebar-panel { height: 250px; border-bottom: 1px solid #ddd; order: 2; }
+    .main-panel { order: 1; height: 50vh; }
+}
