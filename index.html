@@ -14,11 +14,10 @@
     <script type="text/javascript">
        (function(){
           emailjs.init({
-            publicKey: "eTvjpGTDwu0AjVlyf",
+            publicKey: "eTvjpGTDwu0AjVlyf", // Ta clé publique est bien ici
           });
        })();
     </script>
-    
 </head>
 <body>
 
@@ -31,7 +30,7 @@
         <nav class="nav-links">
             <a href="#AboutUs">À propos</a>
             <a href="#Contact">Contact</a>
-            </nav>
+        </nav>
         <a href="dressing_page.html" class="cta-button primary-nav">MON DRESSING</a>
     </header>
 
@@ -73,7 +72,7 @@
                 <h2 class="section-title">Nous contacter</h2>
                 <p class="section-desc">Une question ou une suggestion ? Écrivez-nous !</p>
                 
-                <form class="contact-form" action="#" method="POST">
+                <form id="contact-form" class="contact-form">
                     <div class="form-group-row">
                         <div class="form-group">
                             <label for="firstname">Prénom</label>
@@ -95,7 +94,7 @@
                         <textarea id="message" name="message" rows="5" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
                     </div>
 
-                    <button type="submit" class="cta-button primary-nav btn-full-width">ENVOYER LE MESSAGE</button>
+                    <button type="submit" id="submit-btn" class="cta-button primary-nav btn-full-width">ENVOYER LE MESSAGE</button>
                 </form>
             </div>
         </section>
@@ -108,47 +107,64 @@
                 <p>© 2025 VirtuaLook</p>
             </div>
             <div class="other_infos">
-                </div>
+            </div>
         </div>
     </footer>
 
-     <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault(); // Empêche le rechargement de la page
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // On récupère le formulaire par son ID (ajouté plus haut)
+            const form = document.getElementById('contact-form');
 
-                // Récupération du bouton pour changer le texte (effet de chargement)
-                const btn = document.getElementById('submit-btn');
-                const originalText = btn.innerText;
-                btn.innerText = 'Envoi en cours...';
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Indispensable pour éviter l'erreur 405
 
-                // REMPLACER CES VALEURS PAR LES TIENNES
-                const serviceID = 'service_rq5uxmt';
-                const templateID = 'template_0qxauh7';
+                    const btn = document.getElementById('submit-btn');
+                    const originalText = btn ? btn.innerText : 'Envoyer'; // Sauvegarde du texte
+                    
+                    if(btn) btn.innerText = 'Envoi en cours...';
 
-                emailjs.sendForm(serviceID, templateID, this)
-                    .then(() => {
-                        btn.innerText = 'Message envoyé !';
-                        btn.style.backgroundColor = '#28a745'; // Vert succès
-                        setTimeout(() => {
-                            btn.innerText = originalText;
-                            btn.style.backgroundColor = ''; // Retour couleur normale
-                            document.getElementById('contact-form').reset(); // Vide le formulaire
-                        }, 3000);
-                    }, (error) => {
-                        btn.innerText = 'Erreur...';
-                        btn.style.backgroundColor = '#dc3545'; // Rouge erreur
-                        console.log('FAILED...', error);
-                        alert('Une erreur est survenue, merci de réessayer.');
-                        setTimeout(() => {
-                            btn.innerText = originalText;
-                            btn.style.backgroundColor = '';
-                        }, 3000);
-                    });
-            });
-        }
+                    // Tes IDs corrects
+                    const serviceID = 'service_rq5uxmt';
+                    const templateID = 'template_0qxauh7';
+
+                    emailjs.sendForm(serviceID, templateID, this)
+                        .then(() => {
+                            if(btn) {
+                                btn.innerText = 'Message envoyé !';
+                                btn.style.backgroundColor = '#28a745';
+                            }
+                            // Reset après 3 secondes
+                            setTimeout(() => {
+                                if(btn) {
+                                    btn.innerText = originalText;
+                                    btn.style.backgroundColor = '';
+                                }
+                                form.reset();
+                            }, 3000);
+                        }, (error) => {
+                            if(btn) {
+                                btn.innerText = 'Erreur...';
+                                btn.style.backgroundColor = '#dc3545';
+                            }
+                            console.log('FAILED...', error);
+                            alert('Erreur : ' + JSON.stringify(error));
+                            
+                            setTimeout(() => {
+                                if(btn) {
+                                    btn.innerText = originalText;
+                                    btn.style.backgroundColor = '';
+                                }
+                            }, 3000);
+                        });
+                });
+            } else {
+                console.error("Erreur : Formulaire introuvable. Vérifiez l'ID 'contact-form' dans le HTML.");
+            }
+        });
     </script>
-    
 
 </body>
 </html>
