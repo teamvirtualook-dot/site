@@ -21,38 +21,86 @@
         <nav class="nav-links">
             <a href="#AboutUs">À propos</a>
             <a href="#Contact">Contact</a>
-            <a href="#help">Aide</a>
-        </nav>
+            </nav>
         <a href="dressing_page.html" class="cta-button primary-nav">MON DRESSING</a>
     </header>
 
-    <main class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                Trouvez <span class="highlight">la</span> meilleure tenue
-            </h1>
-            <p class="hero-subtitle">
-                Essayez toutes vos tenues sans avoir à les porter. Créez votre double digital et organisez votre garde-robe de demain.
-            </p>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Trouvez <span class="highlight">la</span> meilleure tenue
+                </h1>
+                <p class="hero-subtitle">
+                    Essayez toutes vos tenues sans avoir à les porter. Créez votre double digital et organisez votre garde-robe de demain.
+                </p>
 
-            <div class="landing-avatar-container"> <img src="images/avatar_landing_page.png" alt="Avatar VirtuaLook en 3D" class="avatar-image">
+                <div class="landing-avatar-container"> 
+                    <img src="images/avatar_landing_page.png" alt="Avatar VirtuaLook en 3D" class="avatar-image">
+                </div>
+
+                <a href="#" class="cta-button primary-hero">COMMENCER MAINTENANT</a>
+                <p class="login-link">Déjà membre ? <a href="#">Se connecter</a></p>
             </div>
+        </section>
 
-            <a href="#" class="cta-button primary-hero">COMMENCER MAINTENANT</a>
-            <p class="login-link">Déjà membre ? <a href="#">Se connecter</a></p>
-        </div>
+        <section id="AboutUs" class="section-container">
+            <div class="section-content">
+                <h2 class="section-title">À propos de VirtuaLook</h2>
+                <div class="about-text">
+                    <p>
+                        VirtuaLook est né d'une idée simple : réinventer la façon dont nous interagissons avec notre garde-robe. 
+                        Nous croyons que la mode doit être accessible, ludique et durable. Notre technologie de cabine d'essayage 
+                        virtuelle vous permet de visualiser instantanément vos tenues, de gagner du temps le matin et de redécouvrir 
+                        des vêtements oubliés au fond de vos placards. (Texte à modifier selon vos besoins).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="Contact" class="section-container bg-alt">
+            <div class="section-content">
+                <h2 class="section-title">Nous contacter</h2>
+                <p class="section-desc">Une question ou une suggestion ? Écrivez-nous !</p>
+                
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="firstname">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="Votre prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Nom</label>
+                            <input type="text" id="lastname" name="lastname" placeholder="Votre nom" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adresse Email</label>
+                        <input type="email" id="email" name="email" placeholder="exemple@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button primary-nav btn-full-width">ENVOYER LE MESSAGE</button>
+                </form>
+            </div>
+        </section>
+
     </main>
+
     <footer>
         <div class="footer">
             <div class="footer-text">
                 <p>© 2025 VirtuaLook</p>
             </div>
             <div class="other_infos">
-                <!-- <a href="#"><img src="img/linkedin.png" alt="LinkedIn"></a> -->
-            </nav>
-            </div>
+                </div>
         </div>
     </footer>
 
-    </body>
+</body>
 </html>
