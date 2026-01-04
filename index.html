@@ -9,6 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "eTvjpGTDwu0AjVlyf",
+          });
+       })();
+    </script>
+    
 </head>
 <body>
 
@@ -101,6 +111,44 @@
                 </div>
         </div>
     </footer>
+
+     <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Empêche le rechargement de la page
+
+                // Récupération du bouton pour changer le texte (effet de chargement)
+                const btn = document.getElementById('submit-btn');
+                const originalText = btn.innerText;
+                btn.innerText = 'Envoi en cours...';
+
+                // REMPLACER CES VALEURS PAR LES TIENNES
+                const serviceID = 'service_rq5uxmt';
+                const templateID = 'template_0qxauh7';
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        btn.innerText = 'Message envoyé !';
+                        btn.style.backgroundColor = '#28a745'; // Vert succès
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.style.backgroundColor = ''; // Retour couleur normale
+                            document.getElementById('contact-form').reset(); // Vide le formulaire
+                        }, 3000);
+                    }, (error) => {
+                        btn.innerText = 'Erreur...';
+                        btn.style.backgroundColor = '#dc3545'; // Rouge erreur
+                        console.log('FAILED...', error);
+                        alert('Une erreur est survenue, merci de réessayer.');
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.style.backgroundColor = '';
+                        }, 3000);
+                    });
+            });
+        }
+    </script>
+    
 
 </body>
 </html>
