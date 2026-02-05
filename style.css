@@ -82,7 +82,6 @@ ul { list-style: none; }
     background-color: #122448; /* Un bleu plus foncé que le primary */
     transform: scale(1.05); 
 }
-
 .primary-action { background: var(--color-primary); color: white; padding: 8px 15px; font-size: 0.9rem; border-radius: 4px;}
 .primary-action:hover { background: #162d5a; }
 
