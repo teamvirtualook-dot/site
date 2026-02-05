@@ -2,8 +2,8 @@
 
 /* 1. VARIABLES & BASE */
 :root {
-    --color-primary: #1D396F; /* Bleu foncé */
-    --color-accent: #5C5C5D; /* Gris foncé / Accent */
+    --color-primary: #183160; /* Bleu foncé */
+    --color-accent: #E6E6E6; /* Blanc cassé / Accent */
     --color-text: #333;
     --color-background: #f8f8f8;
     --color-light-gray: #e0e0e0;
