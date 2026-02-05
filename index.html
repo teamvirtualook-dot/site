@@ -9,15 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
-
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-       (function(){
-          emailjs.init({
-            publicKey: "eTvjpGTDwu0AjVlyf", // Ta clé publique est bien ici
-          });
-       })();
-    </script>
 </head>
 <body>
 
@@ -37,17 +29,13 @@
     <main>
         <section class="hero-section">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    Trouvez <span class="highlight">la</span> meilleure tenue
-                </h1>
+                <h1 class="hero-title">Trouvez <span class="highlight">la</span> meilleure tenue</h1>
                 <p class="hero-subtitle">
                     Essayez toutes vos tenues sans avoir à les porter. Créez votre double digital et organisez votre garde-robe de demain.
                 </p>
-
                 <div class="landing-avatar-container"> 
                     <img src="images/avatar_landing_page.png" alt="Avatar VirtuaLook en 3D" class="avatar-image">
                 </div>
-
                 <a href="#" class="cta-button primary-hero">COMMENCER MAINTENANT</a>
                 <p class="login-link">Déjà membre ? <a href="#">Se connecter</a></p>
             </div>
@@ -57,12 +45,7 @@
             <div class="section-content">
                 <h2 class="section-title">À propos de VirtuaLook</h2>
                 <div class="about-text">
-                    <p>
-                        VirtuaLook est né d'une idée simple : réinventer la façon dont nous interagissons avec notre garde-robe. 
-                        Nous croyons que la mode doit être accessible, ludique et durable. Notre technologie de cabine d'essayage 
-                        virtuelle vous permet de visualiser instantanément vos tenues, de gagner du temps le matin et de redécouvrir 
-                        des vêtements oubliés au fond de vos placards.
-                    </p>
+                    <p>VirtuaLook est né d'une idée simple : réinventer la façon dont nous interagissons avec notre garde-robe...</p>
                 </div>
             </div>
         </section>
@@ -94,77 +77,19 @@
                         <textarea id="message" name="message" rows="5" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
                     </div>
 
-                    <button type="button" onclick="sendMail()" id="submit-btn" class="cta-button primary-nav btn-full-width">ENVOYER LE MESSAGE</button>
+                    <button type="submit" id="submit-btn" class="cta-button primary-nav btn-full-width">ENVOYER LE MESSAGE</button>
                 </form>
             </div>
         </section>
-
     </main>
 
     <footer>
         <div class="footer">
-            <div class="footer-text">
-                <p>© 2025 VirtuaLook</p>
-            </div>
-            <div class="other_infos">
-            </div>
+            <p>© 2025 VirtuaLook</p>
         </div>
     </footer>
 
-<script type="text/javascript">
-    function sendMail() {
-        // 1. On récupère le bouton et le formulaire
-        var btn = document.getElementById('submit-btn');
-        var form = document.getElementById('contact-form');
-        
-        // 2. Vérification simple : les champs sont-ils remplis ?
-        var prenom = document.getElementById('firstname').value;
-        var nom = document.getElementById('lastname').value;
-        var email = document.getElementById('email').value;
-        var message = document.getElementById('message').value;
-
-        if(prenom === "" || nom === "" || email === "" || message === "") {
-            alert("Merci de remplir tous les champs avant d'envoyer.");
-            return; // On arrête tout si c'est vide
-        }
-
-        // 3. Changement visuel du bouton
-        var originalText = btn.innerText;
-        btn.innerText = 'Envoi en cours...';
-        btn.style.backgroundColor = '#ccc'; // Gris pendant l'envoi
-        btn.disabled = true; // Empêche de cliquer 2 fois
-
-        // 4. Configuration EmailJS (Tes codes sont déjà là)
-        const serviceID = 'service_rq5uxmt';
-        const templateID = 'template_0qxauh7';
-
-        // 5. Envoi
-        emailjs.sendForm(serviceID, templateID, form)
-            .then(() => {
-                // SUCCÈS
-                btn.innerText = 'Message envoyé !';
-                btn.style.backgroundColor = '#28a745'; // Vert
-                alert('Votre message a bien été envoyé !');
-                
-                // On remet le formulaire à zéro
-                form.reset();
-                
-                // On remet le bouton normal après 3 secondes
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.backgroundColor = '';
-                    btn.disabled = false;
-                }, 3000);
-            }, (err) => {
-                // ERREUR
-                btn.innerText = 'Erreur';
-                btn.style.backgroundColor = '#dc3545'; // Rouge
-                btn.disabled = false;
-                alert('Erreur lors de l\'envoi : ' + JSON.stringify(err));
-                console.error('Erreur EmailJS:', err);
-            });
-    }
-</script>
+    <script src="contact.js"></script>
 
 </body>
 </html>
