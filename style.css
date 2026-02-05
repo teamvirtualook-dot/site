@@ -31,21 +31,22 @@ ul { list-style: none; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    background: #fff;
-    border-bottom: 1px solid var(--color-light-gray);
+    padding: 0.5rem 5%; /* Réduit un peu le padding vertical */
+    background: #e6e6e6; /* Ta couleur de fond logo */
+    border-bottom: 1px solid #d1d1d1; /* Une bordure légèrement plus foncée pour le contraste */
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
 
+.logo-img {
+    height: 80px;    /* Ajuste cette valeur selon tes goûts (entre 40px et 60px) */
+    width: auto;     /* Garde les proportions */
+    display: block;  /* Retire les espaces vides sous l'image */
+}
 .logo { 
-    font-weight: 800; 
-    font-size: 1.5rem; 
     display: flex; 
     align-items: center; 
     cursor: pointer;
 }
-.logo-virtua { color: var(--color-primary); font-family: 'Gugi', sans-serif; }
-.logo-look { color: var(--color-accent); font-family: 'Gugi', sans-serif; }
 
 .nav-links a { margin-left: 20px; font-weight: 600; color: var(--color-text); }
 .nav-links a:hover { color: var(--color-primary); }
@@ -77,7 +78,10 @@ ul { list-style: none; }
 }
 
 .primary-nav { background-color: var(--color-primary); color: #fff; }
-.primary-nav:hover { background-color: var(--color-accent); transform: scale(1.05); }
+.primary-nav:hover { 
+    background-color: #122448; /* Un bleu plus foncé que le primary */
+    transform: scale(1.05); 
+}
 
 .primary-action { background: var(--color-primary); color: white; padding: 8px 15px; font-size: 0.9rem; border-radius: 4px;}
 .primary-action:hover { background: #162d5a; }
