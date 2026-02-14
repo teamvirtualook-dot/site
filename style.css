@@ -103,7 +103,10 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-.highlight { color: var(--color-accent); }
+.highlight {
+    /* Mélange l'accent avec 20% de noir */
+    color: color-mix(in srgb, var(--color-accent), black 20%);
+  }
 
 .hero-subtitle {
     font-size: 1.25rem;
