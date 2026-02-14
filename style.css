@@ -2,12 +2,13 @@
 
 /* 1. VARIABLES & BASE */
 :root {
-    --color-primary: #183160; /* Bleu foncé */
-    --color-accent: #E6E6E6; /* Blanc cassé / Accent */
-    --color-text: #333;
+    --color-primary: #183160;
+    --color-accent: #E6E6E6;
+    --color-text: #183160;
     --color-background: #f8f8f8;
     --color-light-gray: #e0e0e0;
-    --font-family: 'Manrope', sans-serif;
+    --font-family: 'Manrope', sans-serif;      /* Gardez pour le corps */
+    --font-heading: 'Poppins', sans-serif;     /* Nouveau : pour certains titres */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,10 +43,8 @@ ul { list-style: none; }
     width: auto;     /* Garde les proportions */
     display: block;  /* Retire les espaces vides sous l'image */
 }
-.logo { 
-    display: flex; 
-    align-items: center; 
-    cursor: pointer;
+.logo {
+    font-family: 'Gugi', sans-serif;
 }
 
 .nav-links a { margin-left: 20px; font-weight: 600; color: var(--color-text); }
@@ -97,12 +96,11 @@ ul { list-style: none; }
 
 .hero-content { max-width: 800px; margin: 0 auto; }
 
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: var(--color-primary);
-    line-height: 1.2;
+.hero-title, 
+.section-title,
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
 .highlight { color: var(--color-accent); }
